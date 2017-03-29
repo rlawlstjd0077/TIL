@@ -16,8 +16,9 @@
  ### Map은 Iterator를 사용하지 못하나?
   - Map 인터페이스를 구현한 컬렉션 클래스는 키와 값 쌍으로 데이터를 저장하고 있기 때문에 iterator()를 직접 호출할 수는 없고 그 대신 keySet()이나 entrySet()과 같은 메서드를 통해서 Set으로 얻어온 뒤 사용이 가능하다.
 
+ > Source Code
 
-            Map map = new HashMap();
+        Map map = new HashMap();
         map.put("rlawlstjd007", "김진성");
         map.put("beinone", "조성빈");
         map.put("hengole", "김기황");
