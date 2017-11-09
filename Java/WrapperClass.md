@@ -1,4 +1,4 @@
-	# Wrapper Class
+# Wrapper Class
 
 
 
@@ -47,7 +47,7 @@ public class WrapperExample1{
 
 
 - Wrapper -> 원시 타입
-
+##
 	public class WrapperExample2{    
 		public static void main(String args[]){    
 			//Converting Integer to int    
