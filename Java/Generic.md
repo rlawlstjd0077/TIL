@@ -76,3 +76,50 @@
         double v2 = t2.doubleValue();       //Number의 doubleValue() 메소드 사용
         return Double.compare(v1, v2);
     }
+
+
+## 1.6 와일드카드 타입 (<?>, <? extends ...>, <? super ...>)
+- 코드에서 ?를 일반적으로 와일드카드 라고 부른다.  제네릭 타입을 매개갑이나 리턴 타입으로 사용할 때 구체적인 타입 대신에 와일드카드를 다음과 같이 세가지 형태로 사용이 가능하다.
+##
+
+1.  제네릭타입<?> (제한 없음): 타입 파라미터를 대체하는 구체적인 타입으로 모든 클래스나 인터페이스 타입이 올 수 있다.
+2. 제네릭타입 <? extends 상위 타입> (상위 클래스 제한) : 타입 파라미터를 대치하는 구체적인 타입으로 상위 타입이나 하이 타입만 올 수 있다.
+3. 제네릭타입 <? super 하위 타입> (하위 클래스 제한) : 타입 파라미터를 대치하는 구체적인 타입으로 하위 타입이나 상위 타입이 올 수 있다. 
+
+
+### 예제
+- 아래의 제네릭 타입의 Course 클래스가 있다고 하자. 
+##
+
+    public class Course<T> {
+        private String name;
+        private T[] students;
+
+        public Course(String name, int capacity) {
+            this.name = name;
+            students = (T[]) (new Object[capacity]);
+        }
+
+        public String getName() {return name;}
+        public T[] getStudents() {return students;}
+        public void add(T t) {
+            for(int i = 0l i < students.length; i++) {
+                if(students[i] == null) {
+                    students[i] = t;
+                    break;
+                }
+            }
+        }
+    }
+
+## 1.7 제네릭 타입의 상속과 구현 
+- 제네릭 타입도 다른 타입과 마찬가지로 부모 클래스가 될 수 있다. 아래의 예처럼 말이다.
+##
+    public class ChildProduct<T, M> extends Product<T, M> { ... }
+- 자식 제네릭 타입은 추가적으로 타입 파라미터를 가질 수 있다. 다음은 세 가지 타입 파라미터를 가진 자식 제네릭 타입을 선언한 것이다.
+## 
+    public class ChildProduct<T, M, C> extends Product<T, M> { ... }
+
+### * 질문 
+1. 강한 타입 체크가 뭘까?
+2. 형변환을 하는 데에는 얼마나 많은 cost가 드는 걸까?
