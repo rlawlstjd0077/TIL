@@ -8,6 +8,10 @@
 - 내 손과 머리가 가는 만큼 시스템은 점점 가벼워진다.
 - Primary Shard 수를 1로 설정
 - 아직까진 mappings type에 doc 대신에 _default_를 쓰는 것이 좋다.
+- minimum_master_nodes를 node 수 / 2 + 1로 설정해야 split brain시 문제를 해결할 수 있다.
+- 트랜잭션이 없기 때문에 snapshot을 활용하면 좋다. (index 없을 시 data folder를 복사 하는 것도 방법)
+- doc단위로 delete 하거나 update를 하는 것도 delete marking을 하는 것일 뿐이기 때문에 segment merge가 일어난 후에야 지워진다.
+- 속도를 위해선 filter를 넣어주는 것이 좋다.
 ## question
 - elastic stack 각각의 용도 ?
 - mean of mapping?
@@ -19,6 +23,8 @@
 - 이전에 class를 변경해서 저장한 경우는 어떻게 가능했던 건지 ?
 - ngram?
 - 샤드란 ? 
+- field data vs doc value (338 page)
+- Node가 늘어나면 효율 Limit인 Shard 도 늘어나는 가 ?
 ## Link
 - https://www.elastic.co/kr/blog - 한국어 블로그
 - https://www.elastic.co/kr/videos - 비디오
@@ -180,3 +186,62 @@
 
 ### Highlighting 
 - simonic으로 저장시 동의어가 결과로 나와서 구별이 힘들 때가 있는데 highlighting을 쓰면 검색 단어가 결과로 나온다.
+
+## 6. Distributed Model
+
+### Starting Node
+- All node have clusterState(It can changed only be master node)
+- All node is data node (config 변경 가능)
+- All node can be Cordinating Node that catch  Request by client
+- ClusterState가 업데이트 되면 모든 노드에 배포
+
+### Second Node 
+- Node can be join master node, They will be share clusterstate
+
+### Shard 
+- 미리 node 에서 여러 shard에 index를 나워서 저장한다.
+- shard는 node에서 분산되어 저장된다. (Primary Shard)
+### Replication
+- Master Node에 요청을 통해서 clusterState를 변경 
+- Shard 복제본은 만드는 것.
+- Node가 하나일 때는 replica를 못만들가 때문에 yellow가 발생
+- Shard 수는 Node의 배수로 하는 것이 좋을 수도 있다.
+- 각 Node의 primary Shard를 다른의 replica shard로 만드는 것이다. (이해 필요 *)
+## 7. Search Result
+### Segment
+- 기록 저장단위 inverted index 를 저장
+- 각 필드 별로 segment가 만들어진다. Lucene에서 만듬.
+- default 1초 단위로 만듬.
+- refresh 후에 검색(segement에서 검색)이 가능하다.
+- replica를 늘리면 검색 분산성이 좋고, shart가 어느정도 많을 수록 검색 속도가 증가한다.
+### Sorting by String
+- doc value 타입이 하나 더 생기는 것 리하 생각하면 됨. (해제하면 용량은 줄지만 aggregation 이 불가능)
+- nomalizers -> keyword type 을 바꾸는 것 doc value를 바꾸는 것
+### Pagination
+- deep pigination 시 과부하가 걸릴 수 있음
+- searqch_after 옵션을 이용 (352 page 확인)
+### Scroll
+- 모든 데이터를 가져올 때는 logstash를 사용해 input->E.S output->File 하는 방법
+## 8. Suggersters
+### Suggesters
+- Similar-looking, ex). 연관 검색어 
+- suggester 사용 시 doc을 반환하는 fuzzy search 와 달리 match 되는 token을 반환한다.
+- Suggesting phrases (390 page)
+## 9. Aggregation
+### W.A.A
+- 계산된 결과를 얻고자 할 떼 쓰인다.
+- agreegation value만을 얻고 싶다면 size를 0으로
+## 10. More Aggregations
+### Aggregation Scope
+1. global : 쿼리를 무시한다. 전체 index doc을 가져온다.
+2. post_filter : query에만 영향을 끼침 aggs 에는 X
+### Misssing Aggregation 
+- field가 null 인 것들을 계산하고자 할 때
+### Histogram
+- interval을 나눠서 구한다.
+- barchart 등을 만들때 용이함.
+- min_doc_count parameter를 이용해서 최소 값 이상일 경우에만 출력하도록
+### percentiles 
+- 상위 몇 % 인지 이해하면 쉬움
+### Significant Terms
+- commonly common 한 값을 제외
