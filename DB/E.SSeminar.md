@@ -1,30 +1,30 @@
 # ElasticSearch for Developer
 ## tip
-- index의 두가지 의미 (색인을 한다, doc의 논리적인 구조 simmilar table)
-- elasticsearch sparse doc(여러 Type 저장시 문제) 
-- query 밑에 모든 것을 쓴다.
-- 검색을 잘하려 하는 것 보다 처음에 설계에 시간을 투자 하는 것이 훨씬 효과적이다.
-- text에 여러 국어가 있을 경우 Multifield, 혹은 Language Detecter를 사용할 수 있다.  
-- 내 손과 머리가 가는 만큼 시스템은 점점 가벼워진다.
-- Primary Shard 수를 1로 설정
-- 아직까진 mappings type에 doc 대신에 _default_를 쓰는 것이 좋다.
-- minimum_master_nodes를 node 수 / 2 + 1로 설정해야 split brain시 문제를 해결할 수 있다.
-- 트랜잭션이 없기 때문에 snapshot을 활용하면 좋다. (index 없을 시 data folder를 복사 하는 것도 방법)
-- doc단위로 delete 하거나 update를 하는 것도 delete marking을 하는 것일 뿐이기 때문에 segment merge가 일어난 후에야 지워진다.
-- 속도를 위해선 filter를 넣어주는 것이 좋다.
+1.  index의 두가지 의미 (색인을 한다, doc의 논리적인 구조 simmilar table)
+2. elasticsearch sparse doc(여러 Type 저장시 문제) 
+3. query 밑에 모든 것을 쓴다.
+4. 검색을 잘하려 하는 것 보다 처음에 설계에 시간을 투자 하는 것이 훨씬 효과적이다.
+5. text에 여러 국어가 있을 경우 Multifield, 혹은 Language Detecter를 사용할 수 있다.  
+6. 내 손과 머리가 가는 만큼 시스템은 점점 가벼워진다.
+7. Primary Shard 수를 1로 설정
+8. 아직까진 mappings type에 doc 대신에 _default_를 쓰는 것이 좋다.
+9. minimum_master_nodes를 node 수 / 2 + 1로 설정해야 split brain시 문제를 해결할 수 있다.
+10. 트랜잭션이 없기 때문에 snapshot을 활용하면 좋다. (index 없을 시 data folder를 복사 하는 것도 방법)
+11. doc단위로 delete 하거나 update를 하는 것도 delete marking을 하는 것일 뿐이기 때문에 segment merge가 일어난 후에야 지워진다.
+12. 속도를 위해선 filter를 넣어주는 것이 좋다.
 ## question
-- elastic stack 각각의 용도 ?
-- mean of mapping?
-- mean of score?
-- what is replica?
-- 148 page
-- synonyms analyzer ?
-- property -> index : false ?
-- 이전에 class를 변경해서 저장한 경우는 어떻게 가능했던 건지 ?
-- ngram?
-- 샤드란 ? 
-- field data vs doc value (338 page)
-- Node가 늘어나면 효율 Limit인 Shard 도 늘어나는 가 ?
+1. elastic stack 각각의 용도 ?
+2. mean of mapping?
+3. mean of score?
+4. what is replica?
+5. 148 page
+6. synonyms analyzer ?
+7. property -> index : false ?
+8. 이전에 class를 변경해서 저장한 경우는 어떻게 가능했던 건지 ?
+9. ngram?
+10. 샤드란 ? 
+11. field data vs doc value (338 page)
+12. Node가 늘어나면 효율 Limit인 Shard 도 늘어나는 가 ?
 ## Link
 - https://www.elastic.co/kr/blog - 한국어 블로그
 - https://www.elastic.co/kr/videos - 비디오
