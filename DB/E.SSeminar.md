@@ -244,4 +244,4 @@
 ### percentiles 
 - 상위 몇 % 인지 이해하면 쉬움
 ### Significant Terms
-- commonly common 한 값을 제외
+- commonly common 한 값을 제외.
