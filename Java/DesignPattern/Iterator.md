@@ -25,10 +25,27 @@
     1. Aggregate를 구현한 클래스가 제공하는 매커니즘에 따라 next, hasNext를 구현한다.
 4. 외부에서는 Iterator Interface를 이용하여 순회를 한다.
 
+## 예제 형식
+### 스터디 교제
+### head first design pettern
+###  
+
 ## 그 밖에 부가적인 내용들
 - Iterator 클래스는 자바 기본 클래스 이고 ArrayList에서는 기본적으로 iterator를 제공한다. 
-
+- Iteratble 을 Aggregate라고 볼 수도 있는 것일까?
+    - Java Collection을 이 패턴을 이용해서 구현했다고 생각을 해도 되는 것인가?
 ## 의문점
 - getBookAt 메소드가 수정됬을 때 iterator 클래스도 변경되어야 할 상황이 존재할까?
     - index 를 통해서 Book을 리턴하는 동작은 안 변하지 않을까?
 - hasNext 가 틀리기 쉬운 이유가 뭘까? 주의해서 작성하지 않으면 최후의 ㅣ1개를 반환하지 못할 위험이 있다는 게 무슨 뜻?
+
+- 효율성 문제
+    - Linked List의 get() 함수를 생각, Data structure 를 신경 쓰지 않아도 됨
+- 인덱스를 신경쓰지 않는다. 
+    - Iterator 가 순서를 보장하는 것은 아니다.
+    - 처음 부터 끝까지 한번 순회할 수 있다.
+    - 의미만 유지되면 되는 것
+
+
+- 내용을 한번 훑고
+- 왜 이 패턴을 쓰는지 ?
