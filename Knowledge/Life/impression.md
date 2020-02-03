@@ -1,3 +1,0 @@
-# Impression Comment
-
-1. ​
