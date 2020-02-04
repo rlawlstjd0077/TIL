@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.time.Month;
 import org.junit.Test;
 
 /**
@@ -12,7 +13,7 @@ public class DollarTest {
 
   @Test
   public void testMultiplication() {
-    Dollar five = new Dollar(5);
+    Money five = Money.dollar(5);
     assertEquals(new Dollar(10), five.times(2));
     assertEquals(new Dollar(15), five.times(3));
   }
@@ -29,8 +30,8 @@ public class DollarTest {
 
   @Test
   public void testFrancMultiplication() {
-    Franc five = new Franc(5);
-    assertEquals(new Franc(10), five.times(2));
-    assertEquals(new Franc(15), five.times(3));
+    Money five = Money.Franc(5);
+    assertEquals(Money.Franc(10), five.times(2));
+    assertEquals(Money.Franc(15), five.times(3));
   }
 }
