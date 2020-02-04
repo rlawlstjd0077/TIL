@@ -1,0 +1,8 @@
+## GK2 Ignore files.
+.gradle/
+.idea/
+classes/
+target/
+build/
+out/
+
