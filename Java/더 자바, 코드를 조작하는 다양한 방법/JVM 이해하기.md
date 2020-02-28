@@ -4,6 +4,8 @@
 
 ------
 
+![img](https://lh5.googleusercontent.com/JBPBku4INfsSlclF2b2RRSfQ6333ybJ22sC81BPNA9xVdCcNPUItUt_COAwuqn_wv4FUY_hE5D-8BrdP2p9Dd1x50F53PoCt2QDhJ8u1FC0gQi5YsE_yetxZPf4PdFZQYNJQE5yR)
+
 ### JVM (Java Virtual Machine)
 
 - **자바 가상 머신**
@@ -40,6 +42,8 @@
 ## JVM 동작 방식
 
 ------
+
+![img](https://lh6.googleusercontent.com/rvA_tW7RQKCQQ0e7Kb2dQ5coQ8ogwVxdaKVWmgjVBc6HCgb2hCeUFqXVse55R1y0VPNZaCLuZecDe3Y6NISrvugohqdVYj6IjVKY0Bs_TzpancL8-xBi86rhlHXEonPL598frjjo)
 
 ### 클래스 로더 시스템
 
@@ -107,6 +111,8 @@
 
 ## 클래스 로더
 
+![img](https://lh5.googleusercontent.com/0Et98u8-Uqifmb8kUdoMbuJlN836o1tS789BCHo4CVr0Gr6OMPaGcklZFTj1eI1AiSzYUOe2dVvwr4hKRTuPAlG3qlL0nPiXa3H5ZXWtJaXA6Noby5vgviCFLfwnfGTLWWPpAd-m)
+
 - 로딩, 링크, 초기화 순으로 진행된다.
 
 ### 로딩
@@ -117,7 +123,7 @@
   - 클래스, 인터페이스, Enum 인지?
   - 메소드와 변수
 - 로딩이 끝나면 해당 클래스 타입의 Class 객체를 생성하여 "힙" 영역에 저장
-  - 즉, 클래스 타입 고유의 객체를 생성하는 것 Class<MyType>
+  - 즉, 클래스 타입 고유의 객체를 생성하는 것 Class <MyType>
 
 ### 링크
 
