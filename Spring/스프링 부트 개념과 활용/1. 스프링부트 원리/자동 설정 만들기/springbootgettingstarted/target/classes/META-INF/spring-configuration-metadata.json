@@ -1,0 +1,23 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.example.ModelProperties",
+      "name": "model",
+      "type": "com.example.ModelProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.example.ModelProperties",
+      "defaultValue": 0,
+      "name": "model.age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.example.ModelProperties",
+      "name": "model.name",
+      "type": "java.lang.String"
+    }
+  ]
+}
