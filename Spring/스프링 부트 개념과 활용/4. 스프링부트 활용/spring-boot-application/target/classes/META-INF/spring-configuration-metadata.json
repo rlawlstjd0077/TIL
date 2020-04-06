@@ -1,0 +1,29 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.jinseong.soft.MyProperties",
+      "name": "kim",
+      "type": "com.jinseong.soft.MyProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.jinseong.soft.MyProperties",
+      "defaultValue": 0,
+      "name": "kim.age",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.jinseong.soft.MyProperties",
+      "name": "kim.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.jinseong.soft.MyProperties",
+      "defaultValue": 0,
+      "name": "kim.size",
+      "type": "java.lang.Integer"
+    }
+  ]
+}
