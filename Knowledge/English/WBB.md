@@ -1,4 +1,25 @@
-[We Bare Bears | Funny Moments | Cartoon Network](https://www.youtube.com/watch?v=q3-S8_dpDfU)
+## 1주차
+
+- 단어
+  - it's all mush: 다 뭉게졌잖아 반죽처럼 되다.
+  - still(?) guy: 여전하다니까
+  - bare: 발가 벗은
+  - let that go: 그냥 잊어
+  - could shape our name in back aging
+- 모르겠는 단어
+  - why did you set off(?) my heart?
+  - are you still 밤 your internet girlfriend broke up with you?
+  - There are 폴랜티 a lot of girls out there
+  - 1:40
+- 느낀점
+  - 어떤 것들은 전부 알아들을 수가 없었는데 영어 자막이 없어서 도저히 파악할 수가 없었다.
+  - 전체적으로 한국말로 알아듣긴 쉬웠다. 물론 이미지나 상황 때문에 인진 모르겠으나.
+
+
+
+## 2주차
+
+We Bare Bears | Funny Moments | Cartoon Network](https://www.youtube.com/watch?v=q3-S8_dpDfU)
 
 배운 표현
 
