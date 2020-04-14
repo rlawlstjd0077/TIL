@@ -24,8 +24,9 @@ We Bare Bears | Funny Moments | Cartoon Network](https://www.youtube.com/watch?v
 배운 표현
 
 - we got to get you to hospital
-  - 병원에 데려다 줄게
-
+  
+- 병원에 데려다 줄게
+  
 - I'm afraid we are out of salmon
 
   - 안타깝지만, 연어는 다 떨어졌어요
@@ -72,3 +73,26 @@ We Bare Bears | Funny Moments | Cartoon Network](https://www.youtube.com/watch?v
 - stay out: 집에 안들어오다
 - IOU: 차용증
 
+## 3주차
+
+배운 표현
+
+- poor thing: 불쌍한 것.,.,
+- apron is ruined: 앞치마가 찢어졌다.
+- vandalized: 파손되다
+- he was never the friendliest crab: 결코 친절한 게가 아니었군 ..
+- can't take it: 참을 수 없군
+- it's only temoporary tile the rain storm over
+
+배운 단어
+
+- ruin: 황폐화
+- couch: 침상
+- lily: 백합
+- trail: 꼬리
+- culprits: 범인
+- stunning: 매우 훌륭한
+
+질문
+
+- 왜 ice bare는 자신에게 sees 라는 단어를 쓰는가?
