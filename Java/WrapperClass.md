@@ -9,8 +9,6 @@
   - 원시 타입이 아닌 객체로 저장해야 할 때
   - 객체간의 비교가 필요할 때
 
-
-
 ## 2. 형태
 
 ### 특징 
@@ -26,7 +24,7 @@
 
 - 기본적으로 오버라이드 된 equls 메소드가 구현되어 있어서 객체의 주소가 아닌 원시 타입의 값을 비교할 수 있다.
 
-  ​
+  
 
 ### 사용법
 
@@ -47,16 +45,18 @@ public class WrapperExample1{
 
 
 - Wrapper -> 원시 타입
-##
-	public class WrapperExample2{    
-		public static void main(String args[]){    
-			//Converting Integer to int    
-			Integer a=new Integer(3);    
-			int i=a.intValue();//converting Integer to int  
-			int j=a;//unboxing, now compiler will write a.intValue() internally    
-	    
-			System.out.println(a+" "+i+" "+j);    
-	}}  
+
+```java
+public class WrapperExample2{    
+	public static void main(String args[]){    
+		//Converting Integer to int    
+		Integer a=new Integer(3);    
+		int i=a.intValue();//converting Integer to int  
+		int j=a;//unboxing, now compiler will write a.intValue() internally
+         System.out.println(a+" "+i+" "+j);    \
+    }
+}
+```
 
 
 ### AutoBoxing, UnAutoBoxing
