@@ -1,10 +1,14 @@
 package com.jinseong.soft;
 
+import java.sql.SQLOutput;
+
 public class Application {
+
     public static void main(String[] args) {
-        String str = "Hello";
-        String str1 = new String("Hello789");
-        //System.out.println(System.identityHashCode(str));
-        //System.out.println(System.identityHashCode(str1));
+        String str = "Kim";
+        String str1 = new String("Kim");
+
+        System.out.println(System.identityHashCode(str));
+        System.out.println(System.identityHashCode(str1));
     }
 }
