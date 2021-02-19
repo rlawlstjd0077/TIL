@@ -1,2 +1,7 @@
 TDD/테스트 주도 개발 예제코드/gradle/wrapper/gradle-wrapper.properties
 TDD/테스트 주도 개발 예제코드/gradle/wrapper/gradle-wrapper.jar
+
+Java/JavaProject/.gradle/*
+Java/JavaProject/.idea/*
+Java/JavaProject/build/*
+Java/JavaProject/out/*
