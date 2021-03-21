@@ -7,6 +7,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url "https://packages.atlassian.com/maven/repository/public" }
 }
 
 dependencies {
@@ -18,4 +19,8 @@ dependencies {
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    // JIRA Client
+    implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '4.0.0'
+    implementation group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.1'
 }
