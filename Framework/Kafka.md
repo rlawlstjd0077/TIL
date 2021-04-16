@@ -11,14 +11,14 @@
   - Source Application 은 주로 데이터를 전송하는 쪽으로 '클릭로그', '결제로그' 등의 로그를 전송한다.
   - Target Application은 로그를 적재하거나 로그를 처리할 수 있다.
   - Kafka는 이들 중간에서 Messaging Queue 역할을 한다.
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7da03d34-b080-4c68-9199-8bbfb1df682d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7da03d34-b080-4c68-9199-8bbfb1df682d/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971731-f44fb400-9eb7-11eb-974e-53190aa5e3ea.png)
 
 - Kafka는 큐 역할을 하는 topic을 가지고 있으면서 topic에 log를 적재하고 가져갈 수 있게끔 한다.
   - log를 적재하는 기능을 위해서는 Producer 라이브러리를 제공한다.
   - log를 가져가는 기능을 위해서는 Comsumer 라이브러리를 제공한다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ed74be26-3638-401f-83ce-99841883cd24/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ed74be26-3638-401f-83ce-99841883cd24/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971743-fd408580-9eb7-11eb-895f-2f4efcf9d781.png)
+
 
 ## Kafka의 특징
 
@@ -28,7 +28,8 @@
 - 주로 3대 이상의 브로커로 클러스터를 구성
 - n개의 브로커 중에서 1개의 브로커는 반드시 컨트롤러 기능을 수행
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67ef188f-1a6f-42a4-8410-573558d44b12/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67ef188f-1a6f-42a4-8410-573558d44b12/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971763-07628400-9eb8-11eb-8a93-f18920b48783.png)
+
 
 ### Zookeeper
 
@@ -48,7 +49,8 @@
 - 다만 파티션이 여러개 인 경우 메시지 처리 순서는 파티션 별로 관리되기 때문에
   - 들어간 순서가 보장 되지 않는다는 것을 의미함
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8e98c6f8-f008-46a6-b12d-341c8bc690f6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8e98c6f8-f008-46a6-b12d-341c8bc690f6/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971778-0df0fb80-9eb8-11eb-9ef1-1c679cb8414f.png)
+
 
 ### Producer
 
@@ -73,12 +75,14 @@
   - 그렇기에 파티션과 컨슈머의 개수가 동일한 경우 훨씬 좋은 성능을 낼 수가 있다.
   - 다만 컨슈머의 개수가 더 많다면 나머지는 놀게 된다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f67c1857-dcc4-4928-81e4-3d620d0f3c8a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f67c1857-dcc4-4928-81e4-3d620d0f3c8a/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971797-147f7300-9eb8-11eb-8e99-5832e1fee4a2.png)
+
 
 - 일부 Consumer가 장애가 난 경우 **리밸런스**가 되어 나머지 Consumer로 할당이 재조정된다.
 - 목적에 따라서  컨슈머 기룹을 분리하는 경우도 있다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d126e21-febc-4d24-897a-6760549f4496/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d126e21-febc-4d24-897a-6760549f4496/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971807-1ba68100-9eb8-11eb-9208-3e8853748aa8.png)
+
 
 ### Replication
 
@@ -86,7 +90,8 @@
 - 리더 파티션: Kafka 클라이언트와 데이터를 주고 받는 역할
 - 팔로워 파티션: 리더 파티션으로 부터 레코드를 지속 복제, 리더 파티션의 동작이 불가능한 경우 나머지 팔로워 중 1개가 리더로 선출된다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7d05acda-19a1-43ea-a18c-f0582f677c03/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7d05acda-19a1-43ea-a18c-f0582f677c03/Untitled.png)
+![image](https://user-images.githubusercontent.com/18481400/114971818-2103cb80-9eb8-11eb-9ec6-95e73d3c8898.png)
+
 
 ### ISR
 
