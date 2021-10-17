@@ -6,5 +6,7 @@ Java/JavaProject/.idea
 Java/JavaProject/build
 Java/JavaProject/out/*
 
-
-
+Kotlin/KotlinPlayGround/.gradle
+Kotlin/KotlinPlayGround/.idea
+Kotlin/KotlinPlayGround/build
+Kotlin/KotlinPlayGround/out/*
