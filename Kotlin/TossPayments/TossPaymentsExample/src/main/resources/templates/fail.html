@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>등록 실패 안내</title>
+</head>
+<body>
+    <h1>카드 등록에 실패하였습나다.</h1>
+    <div>
+        <label>실패 코드: </label>
+        <label th:text="${code}"/>
+    </div>
+    <div>
+        <label>실패 사유: </label>
+        <label th:text="${message}"/>
+    </div>
+</body>
+</html>
