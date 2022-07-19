@@ -6,7 +6,7 @@ package leetcode.string
  *
  * @author Jay
  */
-class Solution4 {
+class ValidAnagram {
     fun isAnagram(s: String, t: String): Boolean {
         if (s.length != t.length) return false
 
@@ -35,8 +35,4 @@ private fun MutableSet<Char>.removeOrAdd(c: Char) {
             add(c)
         }
     }
-}
-
-fun main() {
-    println(Solution4().isAnagram("aacc", "ccac"))
 }

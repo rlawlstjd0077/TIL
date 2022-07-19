@@ -1,57 +1,11 @@
 package leetcode.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 133. Clone Graph (https://leetcode.com/problems/clone-graph/)
  */
-class CloneGrapghg {
-    public static void main(String[] args) {
-
-        final Node node1 = new Node(1);
-        final Node node2 = new Node(2);
-        final Node node3 = new Node(3);
-        final Node node4 = new Node(4);
-
-        node1.neighbors.add(node2);
-        node1.neighbors.add(node4);
-
-        node2.neighbors.add(node1);
-        node2.neighbors.add(node3);
-
-        node3.neighbors.add(node2);
-        node3.neighbors.add(node4);
-
-        node4.neighbors.add(node1);
-        node4.neighbors.add(node3);
-
-        Node result = new Solution81().cloneGraph(node1);
-        System.out.println();
-    }
-}
-
-// Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> neighbors;
-    public Node() {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val) {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val, ArrayList<Node> _neighbors) {
-        val = _val;
-        neighbors = _neighbors;
-    }
-}
-
-class Solution81 {
+class CloneGraph {
     final Map<Integer, Node> visited = new HashMap<>();
 
     public Node cloneGraph(Node node) {
@@ -78,5 +32,36 @@ class Solution81 {
             visited.put(val, node);
             return node;
         }
+    }
+}
+
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> neighbors;
+    public Node() {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val) {
+        val = _val;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val, ArrayList<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return val == node.val && Objects.equals(neighbors, node.neighbors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, neighbors);
     }
 }

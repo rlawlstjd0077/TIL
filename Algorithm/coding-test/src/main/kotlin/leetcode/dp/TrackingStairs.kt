@@ -1,9 +1,5 @@
 package leetcode.dp
 
-import java.util.*
-import kotlin.math.ceil
-import kotlin.math.max
-
 
 /**
  * 70. Climbing Stairs (https://leetcode.com/problems/climbing-stairs/)
@@ -11,7 +7,7 @@ import kotlin.math.max
  * @author Jay
  */
 
-class Solution3 {
+class ClimbingStairs {
     fun climbStairs(n: Int): Int {
         if (n == 1) {
             return 1
@@ -57,10 +53,6 @@ class Solution3 {
 }
 
 fun main() {
-    println(Solution3().climbStairs(1))
-    println(Solution3().climbStairs(2))
-    println(Solution3().climbStairs(3))
-    println(Solution3().climbStairs(4))
-    println(Solution3().climbStairs(5))
+
 }
 

@@ -4,17 +4,7 @@ package leetcode.graph;
  * 200. Number of Islands (https://leetcode.com/problems/number-of-islands/)
  */
 public class NumberOfIslands {
-    public static void main(String[] args) {
-        System.out.println(new Solution71().numIslands(new char[][] {
-                {'1','1','1','1','0'},
-                {'1','1','0','1','0'},
-                {'1','1','0','0','0'},
-                {'0','0','0','0','0'}
-        }));
-    }
-}
 
-class Solution71 {
     public int numIslands(char[][] grid) {
         int counter = 0;
 

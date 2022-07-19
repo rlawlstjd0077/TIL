@@ -10,15 +10,6 @@ import java.util.stream.Collectors;
  * 49. Group Anagrams (https://leetcode.com/problems/group-anagrams/)
  */
 public class GroupAnagram {
-    public static void main(String[] args) {
-        System.out.println(new Solution23().groupAnagrams(new String[] { "abc", "cab", "bbb" }));
-
-    }
-}
-
-
-class Solution23 {
-
     private Map<Map<Character, Integer>, List<String>> resultMap = new HashMap<>();
 
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -44,7 +35,4 @@ class Solution23 {
 
         return map;
     }
-
-
 }
-

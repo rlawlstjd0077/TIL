@@ -1,8 +1,5 @@
 package leetcode.graph
 
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneOffset
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 
@@ -94,25 +91,69 @@ data class PreRequisite(
     val shouldBe: Int
 )
 
-//class SolutionTest {
-//    @Test
-//    fun `asfas`() {
-//        val solution = Solution2()
-//        expectThat(solution.canFinish(2, arrayOf(intArrayOf(1, 0)))) isEqualTo true
-//        //expectThat(solution.canFinish(2, arrayOf(intArrayOf(1, 0), intArrayOf(0, 1)))) isEqualTo false
-//        expectThat(solution.canFinish(1, arrayOf())) isEqualTo true
-//        expectThat(solution.canFinish(20, arrayOf(intArrayOf(0,10), intArrayOf(3, 18),intArrayOf(5,5),intArrayOf(6,11),intArrayOf(11,14),intArrayOf(13,1),intArrayOf(15,1),intArrayOf(17,4),))) isEqualTo false
-//
-//        expectThat(solution.canFinish(20, arrayOf(intArrayOf(0,1), intArrayOf(1, 2),intArrayOf(2,3),intArrayOf(3,0)))) isEqualTo false
-//    }
-//}
-
-fun main() {
-    val now = LocalDate.now()
-
-    //println(now.atStartOfDay())
-    //println(now.atStartOfDay().toUtc(TimeZone.getDefault().rawOffset))
+data class Vertex(
+    val index: Int
+) {
+    var isVisited: Boolean = false
+    var isBeingVisit: Boolean = false
+    var adjencyList: List<Vertex> = mutableListOf()
 }
 
-fun LocalDateTime.toUtc(offset: ZoneOffset): LocalDateTime =
-    this.atZone(offset).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime()
+class Graph {
+    var vertexes: MutableList<Vertex> = mutableListOf()
+
+    fun addEdge(prev: Vertex, next: Vertex) {
+        val source = getOrCreate(prev)
+        val dest = getOrCreate(next)
+
+        source.adjencyList += dest
+    }
+
+    private fun getOrCreate(vertex: Vertex): Vertex {
+        return vertexes.find { it == vertex } ?: vertex.also { vertexes += it }
+    }
+
+    fun hasCycle(): Boolean {
+        vertexes.forEach { vertex ->
+            if (!vertex.isVisited && hasCycle(vertex)) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    fun hasCycle(vertex: Vertex): Boolean {
+        vertex.isBeingVisit = true
+
+        for (neighbor in vertex.adjencyList) {
+            if (neighbor.isBeingVisit) {
+                return true
+            }
+
+            if (!neighbor.isVisited && hasCycle(neighbor)) {
+                return true
+            }
+        }
+
+        vertex.isBeingVisit = false
+        vertex.isVisited = true
+        return false
+    }
+}
+
+class CourseSchedule {
+    fun canFinish(numCourses: Int, prerequisites: Array<IntArray>): Boolean {
+        val graph = Graph()
+
+        prerequisites.forEach {
+            val prev = Vertex(it[0])
+            val next = Vertex(it[1])
+            graph.addEdge(prev, next)
+        }
+
+        return !graph.hasCycle()
+    }
+}
+
+
