@@ -1,13 +1,41 @@
 package leetcode.interval;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 57. Insert Interval (https://leetcode.com/problems/insert-interval/)
  */
-public class InsertInterval {
+class InsertInterval {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> result = new ArrayList<>(intervals.length + 1);
 
+        int index = 0;
+        while (index < intervals.length && intervals[index][1] < newInterval[0]) {
+            result.add(intervals[index]);
+            index++;
+        }
+
+        while (index < intervals.length && intervals[index][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[index][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[index][1]);
+            index++;
+        }
+        result.add(newInterval);
+
+        while (index < intervals.length) {
+            result.add(intervals[index]);
+            index++;
+        }
+
+        return result.toArray(new int[result.size()][2]);
+    }
+
+}
+
+class InsertIntervalOld {
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
         if (intervals.length == 0) {
