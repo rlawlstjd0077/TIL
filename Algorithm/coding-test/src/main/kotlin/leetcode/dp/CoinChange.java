@@ -1,6 +1,5 @@
 package leetcode.dp;
 
-import java.util.Arrays;
 
 public class CoinChange {
     private static int MAX_VALUE = Integer.MAX_VALUE - 1;
